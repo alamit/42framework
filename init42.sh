@@ -15,6 +15,7 @@ else
 fi
 
 cd $BASEDIR
+touch .42framework
 
 echo "*/" > .gitignore
 mkdir tests
