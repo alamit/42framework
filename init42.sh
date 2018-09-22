@@ -15,7 +15,7 @@ else
 fi
 
 cd $BASEDIR
-touch .42framework
+echo "# 42 framework settings, do not modify." > .42framework
 
 echo "*/" > .gitignore
 mkdir tests
@@ -40,6 +40,7 @@ do
 	for filename in "${sub_files[@]}"
 	do
 		touch $dir/$filename
+		echo $dir/$filename >> .42framework
 		echo "!$dir/$filename" >> .gitignore
 		echo '#include "../'$dir'/'$filename'"' >> tests/test_$dir.c
 	done
