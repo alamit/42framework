@@ -15,7 +15,8 @@ else
 fi
 
 cd $BASEDIR
-echo "# 42 framework settings, do not modify." > .42framework
+path42= `pwd`
+echo "# 42 framework settings, do not modify.\n$path42" > .42framework
 
 echo "*/" > .gitignore
 mkdir tests
