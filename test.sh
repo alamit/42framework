@@ -3,11 +3,11 @@
 if [ ! -f .42framework ]
 then
 	echo "You can only execute this script in a repo initialized with the 'init42' command."
-	exit
+	exit 1
 fi
 
 EX_NB=$1
-if [ EX_NB -lt 10 ]
+if [ $EX_NB -lt 10 ]
 then
 	dir="ex0$EX_NB"
 else
@@ -15,14 +15,14 @@ else
 fi
 
 echo "Compiling source files..."
-files= `grep "$dir" .42framework | tr '\n' ' ') 2> /dev/null`
-out=`gcc -Wall -Wextra -Werror -o tests/test_$dir tests/test_$dir.c $files 2> /dev/null`
+gcc -Wall -Wextra -Werror -o tests/test_$dir tests/test_$dir.c
+out=$?
 
-if [ "$out" -neq 0 ]
+if [ "$out" -ne 0 ]
 then
 	echo $out
 	echo "Compilation unsuccessful. Exiting."
-	exit
+	exit 1
 fi
 
 echo "Compilation finished"
@@ -31,10 +31,10 @@ echo "Running tests..."
 ./tests/test_$dir
 out=$?
 
-if [ "$out" -neq 0 ]
+if [ "$out" -ne 0 ]
 then
 	echo "Tests failed. Exiting"
-	exit
+	exit 1
 fi
 
 echo "Tests finished successfully."
@@ -45,5 +45,6 @@ if [ "$out" -eq "*Error*" ]
 then
 	echo $out
 	echo "Norm checks failed. Exiting."
+	exit 1
 fi
-exit
+exit 0
