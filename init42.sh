@@ -18,7 +18,7 @@ cd $BASEDIR
 path42= `pwd`
 echo "# 42 framework settings, do not modify.\n$path42" > .42framework
 
-echo "*/" > .gitignore
+echo "**" > .gitignore
 mkdir tests
 
 while [ $i -lt $NB_EX ]
@@ -42,6 +42,8 @@ do
 	do
 		touch $dir/$filename
 		echo $dir/$filename >> .42framework
+		echo "!$dir/" >> .gitignore
+		echo "$dir/**" >> .gitignore
 		echo "!$dir/$filename" >> .gitignore
 		echo '#include "../'$dir'/'$filename'"' >> tests/test_$dir.c
 	done
