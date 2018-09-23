@@ -12,11 +12,11 @@ See the [.zshrc](https://github.com/alamit/42framework/blob/master/.zshrc) file,
 For example, if you cloned the repo under `~/bin/42framework`, you should add these three functions at the end of your `.zshrc` file:
 ```sh
 init42() {
-	sh ~/scripts/42framework/init42.sh $@
+	sh ~/bin/42framework/init42.sh $@
 }
 
 test42() {
-	sh ~/scripts/42framework/test.sh $@
+	sh ~/bin/42framework/test.sh $@
 }
 
 testall42() {
