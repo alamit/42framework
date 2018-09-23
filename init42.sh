@@ -43,10 +43,10 @@ do
 		filepath="$(pwd)/$dir/$filename"
 		echo $filepath >> .42framework
 		echo "!$dir/" >> .gitignore
-		echo "$dir/**" >> .gitignore
 		echo "!$dir/$filename" >> .gitignore
 		echo '#include "../'$dir'/'$filename'"' >> tests/test_$dir.c
 	done
+	echo "$dir/**" >> .gitignore
 	echo "\nint\tmain(void)\n{\n\t/* Write your tests here and return 1 if something is wrong */\n\treturn (0);\n}" >> tests/test_$dir.c
 	i=$(($i + 1))
 done
