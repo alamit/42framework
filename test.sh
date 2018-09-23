@@ -7,6 +7,8 @@ then
 fi
 
 EX_NB=$1
+shift
+
 if [ $EX_NB -lt 10 ]
 then
 	dir="ex0$EX_NB"
@@ -38,13 +40,18 @@ then
 fi
 
 echo "Tests finished successfully."
-echo "Checking norm..."
 
-out=`norminette -R CheckForbiddenSourceHeader $files 2> /dev/null`
-if [ "$out" -eq "*Error*" ]
+if [ 0 -lt $# ] && [ "$1" = "--norm" ]
 then
-	echo $out
-	echo "Norm checks failed. Exiting."
-	exit 1
+
+	echo "Checking norm..."
+
+	out=`norminette -R CheckForbiddenSourceHeader $files 2> /dev/null`
+	if [ "$out" -eq "*Error*" ]
+	then
+		echo $out
+		echo "Norm checks failed. Exiting."
+		exit 1
+	fi
 fi
 exit 0
