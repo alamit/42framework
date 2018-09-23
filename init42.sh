@@ -15,8 +15,7 @@ else
 fi
 
 cd $BASEDIR
-path42= `pwd`
-echo "# 42 framework settings, do not modify.\n$path42" > .42framework
+echo "# 42 framework settings, do not modify.\n" > .42framework
 
 echo "**" > .gitignore
 mkdir tests
@@ -41,13 +40,14 @@ do
 	for filename in "${sub_files[@]}"
 	do
 		touch $dir/$filename
-		echo $dir/$filename >> .42framework
+		filepath="$(pwd)/$dir/$filename"
+		echo $filepath >> .42framework
 		echo "!$dir/" >> .gitignore
 		echo "$dir/**" >> .gitignore
 		echo "!$dir/$filename" >> .gitignore
 		echo '#include "../'$dir'/'$filename'"' >> tests/test_$dir.c
 	done
-	echo "\nint\tmain(void)\n{\n/* Write your tests here and return 1 if something is wrong */\nreturn (0);\n}" >> tests/test_$dir.c
+	echo "\nint\tmain(void)\n{\n\t/* Write your tests here and return 1 if something is wrong */\n\treturn (0);\n}" >> tests/test_$dir.c
 	i=$(($i + 1))
 done
 
