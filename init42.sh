@@ -31,7 +31,7 @@ do
 	fi
 
 	mkdir $dir
-	echo "#include <libc.h>\n#include <stdio.h>\n#include <stdlib.h>" > tests/test_$dir.c
+	echo "#include <libc.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>" > tests/test_$dir.c
 
 	echo "Enter submission files for $dir separated by commas: \n"
 
