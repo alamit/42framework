@@ -1,7 +1,7 @@
 # 42framework
 Init, unit testing and submission framework for daily projects @42.
 
-## Warning: Beta version
+## Warning: Alpha version
 
 ## Usage
 
