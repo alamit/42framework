@@ -46,12 +46,6 @@ then
 
 	echo "Checking norm..."
 
-	out=`norminette -R CheckForbiddenSourceHeader $files 2> /dev/null`
-	if [ "$out" -eq "*Error*" ]
-	then
-		echo $out
-		echo "Norm checks failed. Exiting."
-		exit 1
-	fi
+	norminette -R CheckForbiddenSourceHeader $dir 2> /dev/null
 fi
 exit 0
