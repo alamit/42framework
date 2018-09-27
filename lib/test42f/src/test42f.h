@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 17:54:12 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/26 20:24:34 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
+#include <string.h>
+#include <stdarg.h>
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -47,7 +50,12 @@ int		test42f_char_gteq(char *title, char c, char expected);
 int		test42f_char_lt(char *title, char c, char expected);
 int		test42f_char_gt(char *title, char c, char expected);
 
+/* New type functions returns dynamically allocated variables, they 
+ * should be freed.*/
 int		test42f_bool_eq(char *title, int boolean, int expected);
 int		test42f_bool_neq(char *title, int boolean, int expected);
 
-char	test42f_newstr(char *str);
+char	*test42f_new_str(char *str);
+int		*test42f_new_intarr(int size, ...);
+
+double	test42f_runtime(clock_t start, clock_t end);
