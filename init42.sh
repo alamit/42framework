@@ -7,7 +7,7 @@ INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 clone=`git clone $REPO_URL $BASEDIR`
 
-if [ "$clone" -eq "*fatal:*" ]
+if [ "$clone" == "*fatal:*" ]
 then
 	echo "Failed to clone git repo. Exiting"
 	exit
@@ -21,7 +21,13 @@ echo "**" > .gitignore
 mkdir tests
 mkdir doc
 
-curl $PDF_URL --output doc/instructions.pdf
+if [[ $PDF_URL =~ ^https?://. ]]
+then
+	curl $PDF_URL --output doc/instructions.pdf
+else
+	cp $PDF_URL doc/instructions.pdf
+fi
+
 $INSTALL_DIR/lib/xpdftools-4.0.0/bin64/pdftotext doc/instructions.pdf doc/instructions.txt
 EXSTR=`grep "Turn-in directory" doc/instructions.txt | sed -n -e 's/^.*Turn-in directory : //p' | sed -e 's/ Allowed functions : .*//g' | sed -e 's/\/ Files to turn in : //g'`
 
