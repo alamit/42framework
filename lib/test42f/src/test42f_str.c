@@ -6,13 +6,13 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:25:32 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/28 00:24:10 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 05:29:58 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/test42f.h"
 
-int		test42f_str_eq(char *title, char *str, char *expected)
+bool	test42f_str_eq(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
@@ -46,7 +46,7 @@ int		test42f_str_eq(char *title, char *str, char *expected)
 	return (res);
 }
 
-int		test42f_str_neq(char *title, char *str, char *expected)
+bool	test42f_str_neq(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
@@ -80,7 +80,7 @@ int		test42f_str_neq(char *title, char *str, char *expected)
 	return (res);
 }
 
-int		test42f_str_lteq(char *title, char *str, char *expected)
+bool	test42f_str_lteq(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
@@ -114,7 +114,7 @@ int		test42f_str_lteq(char *title, char *str, char *expected)
 	return (res);
 }
 
-int		test42f_str_gteq(char *title, char *str, char *expected)
+bool	test42f_str_gteq(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
@@ -148,7 +148,7 @@ int		test42f_str_gteq(char *title, char *str, char *expected)
 	return (res);
 }
 
-int		test42f_str_lt(char *title, char *str, char *expected)
+bool	test42f_str_lt(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
@@ -182,7 +182,7 @@ int		test42f_str_lt(char *title, char *str, char *expected)
 	return (res);
 }
 
-int		test42f_str_gt(char *title, char *str, char *expected)
+bool	test42f_str_gt(char *title, char *str, char *expected)
 {
 	char	*trace;
 	int		res;
