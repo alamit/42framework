@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/27 15:20:29 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 02:39:06 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,18 @@ int		test42f_char_gteq(char *title, char c, char expected);
 int		test42f_char_lt(char *title, char c, char expected);
 int		test42f_char_gt(char *title, char c, char expected);
 
-/* New type functions returns dynamically allocated variables, they 
- * should be freed.*/
 int		test42f_bool_eq(char *title, int boolean, int expected);
 int		test42f_bool_neq(char *title, int boolean, int expected);
 
+int		test42f_intarr_eq(char *title, size_t size, int *arr, int *expected);
+int		test42f_intarr_neq(char *title, size_t size, int *arr, int *expected);
+char	*test42f_intarr2str(size_t size, int *arr);
+
+int		test42f_ptr_eq(char *title, void *ptr, void *expected);
+int		test42f_ptr_neq(char *title, void *ptr, void *expected);
+
+/* New type functions returns dynamically allocated variables, they 
+ * should be freed.*/
 char	*test42f_new_str(char *str);
 int		*test42f_new_intarr(int size, ...);
 
