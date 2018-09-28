@@ -32,13 +32,12 @@ $INSTALL_DIR/lib/xpdftools-4.0.0/bin64/pdftotext doc/instructions.pdf doc/instru
 EXSTR=`grep "Turn-in directory" doc/instructions.txt | sed -n -e 's/^.*Turn-in directory : //p' | sed -e 's/ Allowed functions : .*//g' | sed -e 's/\/ Files to turn in : //g'`
 
 IFS=$'\r\n' GLOBIGNORE='*' command eval 'exs=($EXSTR)'
-
 for ex in "${exs[@]}"
 do
 	dir=`cut -c1-4 <<< $ex`
 	files=`cut -c 5- <<< $ex`
 
-	IFS=$'\r\n' GLOBIGNORE='*' command eval 'filenames=($files)'
+	IFS=$'\r\n, ' GLOBIGNORE='*' command eval 'filenames=($files)'
 	
 	mkdir $dir
 	cp $INSTALL_DIR/lib/test_template.c tests/test_$dir.c
