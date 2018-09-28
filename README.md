@@ -1,5 +1,10 @@
 # 42framework
-Init, unit testing and submission framework for daily projects @42.
+Init, unit testing and submission framework for daily projects @ 42.
+
+### Key functionalities:
+- Generates a repository from a 42 templated PDF file (reads the sumission files).
+- Gitignore everything but the submission files, to prevent repo pollution.
+- Provides a test framework and a test library, that allows to test each exercise separately and properly.
 
 ## Warning: Alpha version
 
