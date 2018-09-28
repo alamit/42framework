@@ -8,23 +8,25 @@ Init, unit testing and submission framework for daily projects @42.
 ### `init42`
 
 The command `init42` takes three arguments:
-- The number of exercises in the day project
+- The URL of the PDF file for the day project or the path to the aforementionned PDF file.
 - Your repo URL for the day project
 - The name of the directory where you want to clone the repo.
 
-For example, if your username is `dtrump` and your repo URL is `vogsphere@vgs.42.us.org:intra/2018/activities/piscine_c_day_04/dtrump`, you have 10 exercises in the project and you would like to write clone your repo in the `d04` folder, then you should use `init42` like this:
+For example, if your username is `dtrump` and your repo URL is `vogsphere@vgs.42.us.org:intra/2018/activities/piscine_c_day_04/dtrump` and you would like to write clone your repo in the `d04` folder, then you should use `init42` like this:
 
 ```sh
-init42 10 vogsphere@vgs.42.us.org:intra/2018/activities/piscine_c_day_04/dtrump d04
+init42 PATH/TO/d04.en.pdf vogsphere@vgs.42.us.org:intra/2018/activities/piscine_c_day_04/dtrump d04
+# OR
+init42 https://url.to.pdf/d04.en.pdf vogsphere@vgs.42.us.org:intra/2018/activities/piscine_c_day_04/dtrump d04
 ```
 
-The script will then ask you to provide the submission files asked in the instructions for each exercise. Those files are listed in the **Files to turn in :** section of each exercise.
+The script will then parse and read the PDF file to generate your repository structure and your submission files. Those files are listed in the **Files to turn in :** section of each exercise.
 
-**PLEASE BE VERY CAREFUL WHEN ENTERING THE FILENAMES, AT THE MOMENT THE ONLY WAY TO FIX WRONG NAME IS TO START THE PROCEURE FROM SCRATCH, I SUGGEST YOU TO COPY PASTE THEM**
-
-Then every files other than those will be added to your `.gitignore` file, which will prevent you from pushing unwanted files to the repo for submission. *You can now use `git add .` safely, it will only add submission files*.
+Then every files other than the submission files those will be added to your `.gitignore` file, which will prevent you from pushing unwanted files to the repo for submission. *You can now use `git add .` safely, it will only add submission files*.
 
 Also, a `tests` folder is created, this folder contains a `.c` file for every exercise, **you must write all you tests in these files.** They are already templated to include the files you need to test for each exercise. Feel free to modify them but you could break the repo.
+
+The test files all includes a library called `test42f`, this library contains test functions to help you writing your tests. The documentation for this library is not yet available but you can read the [header](https://github.com/alamit/42framework/blob/master/lib/test42f/include/test42f.h) and look at the [implementations](https://github.com/alamit/42framework/tree/master/lib/test42f/src) of these functions.
 
 Feel free to ping me on slack (@alamit) if you have any question, I cannot ensure I'll answer quick but I'll do my best.
 
