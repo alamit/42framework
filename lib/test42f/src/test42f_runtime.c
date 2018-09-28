@@ -6,11 +6,11 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 19:23:25 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 19:29:01 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 16:20:11 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test42f.h"
+#include "../include/test42f.h"
 
 double test42f_runtime(clock_t start, clock_t end)
 {

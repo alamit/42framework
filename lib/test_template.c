@@ -6,11 +6,11 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 19:35:29 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 19:44:05 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 15:23:11 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test42f.h"
+#include <test42f.h>
 
 /* Write your tests in the main function */
 int		main(void)

@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 20:24:34 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 15:20:29 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
-#define TRUE 1
-#define FALSE 0
 #define INIT_STR_LEN 4096
 
 int		test42f_str_eq(char *title, char *str, char *expected);

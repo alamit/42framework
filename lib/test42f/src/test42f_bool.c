@@ -6,11 +6,11 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 17:28:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 18:18:35 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 16:19:41 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test42f.h"
+#include "../include/test42f.h"
 
 int		test42f_bool_eq(char *title, int boolean, int expected)
 {
