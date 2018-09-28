@@ -77,7 +77,7 @@ if [ 0 -lt $# ] && [ "$1" = "--norm" ]
 then
 
 	print $Cyan "Checking norm...\n"
-	norminette -R CheckForbiddenSourceHeader $dir 2> /dev/null
+	norminette -R CheckForbiddenSourceHeader $dir/*.c 2> /dev/null
 fi
 print $Purple "=====================================================\n"
 exit 0
