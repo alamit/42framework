@@ -1,5 +1,6 @@
 # 42framework
 Init, unit testing and submission framework for daily projects @ 42.
+> If you don't need a towel, you can use this experimental submarine factory.
 
 ### Key functionalities:
 - Generates a repository from a 42 templated PDF file (reads the sumission files).
