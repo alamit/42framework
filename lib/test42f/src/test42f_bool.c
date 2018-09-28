@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 17:28:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/27 16:19:41 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 00:22:39 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		test42f_bool_eq(char *title, int boolean, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -73,7 +73,7 @@ int		test42f_bool_neq(char *title, int boolean, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);

@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 15:29:49 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/27 16:19:24 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 00:23:17 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		test42f_int_eq(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -73,7 +73,7 @@ int		test42f_int_neq(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -107,7 +107,7 @@ int		test42f_int_lteq(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -141,7 +141,7 @@ int		test42f_int_gteq(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -175,7 +175,7 @@ int		test42f_int_lt(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
@@ -209,7 +209,7 @@ int		test42f_int_gt(char *title, int nb, int expected)
 				expected);
 		res = FALSE;
 	}
-	printf("%s%s: \n", KNRM, title);
+	printf("%s%s \n", KNRM, title);
 	printf("%s", trace);
 	if (!res)
 		free(trace);
