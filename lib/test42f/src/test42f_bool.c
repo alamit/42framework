@@ -6,13 +6,13 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 17:28:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/28 00:22:39 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 05:25:06 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/test42f.h"
 
-int		test42f_bool_eq(char *title, int boolean, int expected)
+bool	test42f_bool_eq(char *title, int boolean, int expected)
 {
 	char	*trace;
 	int		res;
@@ -46,7 +46,7 @@ int		test42f_bool_eq(char *title, int boolean, int expected)
 	return (res);
 }
 
-int		test42f_bool_neq(char *title, int boolean, int expected)
+bool	test42f_bool_neq(char *title, int boolean, int expected)
 {
 	char	*trace;
 	int		res;

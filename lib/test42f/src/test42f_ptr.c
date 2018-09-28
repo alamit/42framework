@@ -6,13 +6,13 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 02:58:13 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/28 03:06:56 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 05:29:20 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/test42f.h"
 
-int		test42f_ptr_eq(char *title, void *ptr, void *expected)
+bool	test42f_ptr_eq(char *title, void *ptr, void *expected)
 {
 	char	*trace;
 	int		res;
@@ -46,7 +46,7 @@ int		test42f_ptr_eq(char *title, void *ptr, void *expected)
 	return (res);
 }
 
-int		test42f_ptr_neq(char *title, void *ptr, void *expected)
+bool	test42f_ptr_neq(char *title, void *ptr, void *expected)
 {
 	char	*trace;
 	int		res;

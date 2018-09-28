@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 00:26:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/28 03:08:41 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/28 05:29:01 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*test42f_intarr2str(size_t size, int *arr)
 	return (rtn);
 }
 
-int		test42f_intarr_eq(char *title, size_t size, int *arr, int *expected)
+bool	test42f_intarr_eq(char *title, size_t size, int *arr, int *expected)
 {
 	int		res;
 	char	*arr1;
@@ -53,7 +53,7 @@ int		test42f_intarr_eq(char *title, size_t size, int *arr, int *expected)
 	return (res);
 }
 
-int		test42f_intarr_neq(char *title, size_t size, int *arr, int *expected)
+bool	test42f_intarr_neq(char *title, size_t size, int *arr, int *expected)
 {
 	int		res;
 	char	*arr1;
