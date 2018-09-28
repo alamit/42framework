@@ -6,11 +6,11 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 19:44:54 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 20:24:36 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 16:18:41 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test42f.h"
+#include "../include/test42f.h"
 
 char	*test42f_new_str(char *str)
 {

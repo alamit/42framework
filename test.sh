@@ -13,6 +13,7 @@ Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
+INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd)"
 # Takes 2 params, first is a color, second is a string
 # Does not print a new line
 function print {
@@ -35,9 +36,26 @@ else
 	dir="ex$EX_NB"
 fi
 
+sources=`grep "$dir" .42framework | tr '\n' ' '`
+
 print $Purple "Testing $dir ========================================\n"
-print $Cyan "Compiling source files...\n"
-gcc -Wall -Wextra -Werror -o tests/test_$dir tests/test_$dir.c
+print $Cyan "Compiling handins sources...\n"
+cd $dir
+gcc -Wall -Wextra -Werror -c $sources
+out=$?
+
+if [ "$out" -ne 0 ]
+then
+	echo $out
+	print $Red "Compilation unsuccessful. Exiting.\n"
+	cd ..
+	exit 1
+fi
+cd ..
+print $Cyan "Compiling tests sources...\n"
+sources=`echo "$sources" | sed -e 's/\.c/\.o/g'`
+test42fdir="$INSTALL_DIR/lib/test42f"
+gcc -Wall -Wextra -Werror -o tests/test_$dir -L$test42fdir/bin -ltest42f -I $test42fdir/include tests/test_$dir.c $sources
 out=$?
 
 if [ "$out" -ne 0 ]
@@ -49,15 +67,9 @@ fi
 
 print $Green "Compilation finished\n"
 print $Cyan "Running tests...\n"
-
+export DYLD_FALLBACK_LIBRARY_PATH="$test42fdir/bin:$DYLD_FALLBACK_LIBRARY_PATH"
 ./tests/test_$dir
-out=$?
-
-if [ "$out" -ne 0 ]
-then
-	print $Red "Tests failed. Exiting\n"
-	exit 1
-fi
+export DYLD_FALLBACK_LIBRARY_PATH=`echo $DYLD_FALLBACK_LIBRARY_PATH | sed -e 's/^[^:]*://g'`
 
 print $Green "Tests finished successfully.\n"
 

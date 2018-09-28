@@ -6,11 +6,11 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 15:29:49 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/26 18:18:17 by alamit           ###   ########.fr       */
+/*   Updated: 2018/09/27 16:19:24 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test42f.h"
+#include "../include/test42f.h"
 
 int		test42f_int_eq(char *title, int nb, int expected)
 {
