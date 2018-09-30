@@ -41,6 +41,7 @@ sources=`grep "$dir" .42framework | tr '\n' ' '`
 print $Purple "Testing $dir ========================================\n"
 print $Cyan "Compiling handins sources...\n"
 cd $dir
+echo "gcc -Wall -Wextra -Werror -c $sources"
 gcc -Wall -Wextra -Werror -c $sources
 out=$?
 
@@ -53,8 +54,9 @@ then
 fi
 cd ..
 print $Cyan "Compiling tests sources...\n"
-sources=`echo "$sources" | sed -e 's/\.c/\.o/g'`
+sources=`echo "$sources" | sed -e 's/\.c/\.o/g' | sed 's/[^ ]*\.h//g'`
 test42fdir="$INSTALL_DIR/lib/test42f"
+echo "gcc -Wall -Wextra -Werror -o tests/test_$dir -L$test42fdir/bin -ltest42f -I $test42fdir/include tests/test_$dir.c $sources"
 gcc -Wall -Wextra -Werror -o tests/test_$dir -L$test42fdir/bin -ltest42f -I $test42fdir/include tests/test_$dir.c $sources
 out=$?
 

@@ -35,20 +35,30 @@ IFS=$'\r\n' GLOBIGNORE='*' command eval 'exs=($EXSTR)'
 for ex in "${exs[@]}"
 do
 	dir=`cut -c1-4 <<< $ex`
-	files=`cut -c 5- <<< $ex`
+	files=`cut -c 5- <<< $ex | tr -d ' '`
 
-	IFS=$'\r\n, ' GLOBIGNORE='*' command eval 'filenames=($files)'
+	IFS=$'\r\n,' GLOBIGNORE='*' command eval 'filenames=($files)'
 	
 	mkdir $dir
 	cp $INSTALL_DIR/lib/test_template.c tests/test_$dir.c
 	echo "$dir/**" >> .gitignore
-	
 	for filename in "${filenames[@]}"
 	do
-		touch $dir/$filename
-		filepath="$(pwd)/$dir/$filename"
-		echo $filepath >> .42framework
 		echo "!$dir/" >> .gitignore
-		echo "!$dir/$filename" >> .gitignore
+		if [ $filename = "andyourprogramfiles" -o $filename = "Allnecessaryfiles" -o $filename = "andfilesneededforyourprogram" ]
+		then
+			echo "!$dir/*.c" >> .gitignore
+			echo "!$dir/*.h" >> .gitignore
+			echo "$(pwd)/$dir/*.c" >> .42framework
+			echo "$(pwd)/$dir/*.h" >> .42framework
+		else
+			vim -c Stdheader -c wq $dir/$filename
+			echo "!$dir/$filename" >> .gitignore
+			echo "$(pwd)/$dir/$filename" >> .42framework
+		fi
+		case "$filename" in
+			*.h) vim -c '14i|#include "../'$dir'/'$filename'"' -c wq tests/test_$dir.c ;;
+			*) ;;
+		esac
 	done
 done
