@@ -40,15 +40,22 @@ do
 	IFS=$'\r\n,' GLOBIGNORE='*' command eval 'filenames=($files)'
 	
 	mkdir $dir
-	cp $INSTALL_DIR/lib/test_template.c tests/test_$dir.c
+	mkdir tests/$dir
+	cp $INSTALL_DIR/templates/test_template.c tests/$dir/test_$dir.c
+	cp $INSTALL_DIR/templates/Makefile_test tests/$dir/Makefile
 	echo "$dir/**" >> .gitignore
 	for filename in "${filenames[@]}"
 	do
+		if [ $filename != "Makefile" ]
+		then
+			cp $INSTALL_DIR/templates/Makefile_sources $dir/Makefile
+		fi
 		echo "!$dir/" >> .gitignore
 		if [ $filename = "andyourprogramfiles" -o $filename = "Allnecessaryfiles" -o $filename = "andfilesneededforyourprogram" ]
 		then
 			echo "!$dir/*.c" >> .gitignore
 			echo "!$dir/*.h" >> .gitignore
+			echo "!$dir/Makefile" >> .gitignore
 			echo "$(pwd)/$dir/*.c" >> .42framework
 			echo "$(pwd)/$dir/*.h" >> .42framework
 		else

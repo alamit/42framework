@@ -14,6 +14,7 @@ Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
 INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd)"
+
 # Takes 2 params, first is a color, second is a string
 # Does not print a new line
 function print {
@@ -36,13 +37,15 @@ else
 	dir="ex$EX_NB"
 fi
 
-sources=`grep "$dir" .42framework | tr '\n' ' '`
+export TEST42F_DIR="$INSTALL_DIR/lib/test42f" # exported for makefile.
+export SRC=`grep "$dir*.c" .42framework | tr '\n' ' \\'` # exported for makefile.
+export NAME="test_$dir"
 
-print $Purple "Testing $dir ========================================\n"
+print $Yellow "Testing $dir ========================================\n"
 print $Cyan "Compiling handins sources...\n"
+
 cd $dir
-echo "gcc -Wall -Wextra -Werror -c $sources"
-gcc -Wall -Wextra -Werror -c $sources
+make
 out=$?
 
 if [ "$out" -ne 0 ]
@@ -52,34 +55,36 @@ then
 	cd ..
 	exit 1
 fi
+print $Green "Compilation succeed.\n"
 cd ..
-print $Cyan "Compiling tests sources...\n"
-sources=`echo "$sources" | sed -e 's/\.c/\.o/g' | sed 's/[^ ]*\.h//g'`
-test42fdir="$INSTALL_DIR/lib/test42f"
-echo "gcc -Wall -Wextra -Werror -o tests/test_$dir -L$test42fdir/bin -ltest42f -I $test42fdir/include tests/test_$dir.c $sources"
-gcc -Wall -Wextra -Werror -o tests/test_$dir -L$test42fdir/bin -ltest42f -I $test42fdir/include tests/test_$dir.c $sources
-out=$?
 
-if [ "$out" -ne 0 ]
+if [ "$sources" != "" ]
 then
-	echo $out
-	print $Red "Compilation unsuccessful. Exiting.\n"
-	exit 1
+	print $Cyan "Compiling tests sources...\n"
+
+	cd tests/$dir
+	make compile
+	out=$?
+
+	if [ "$out" -ne 0 ]
+	then
+		echo $out
+		print $Red "Compilation unsuccessful. Exiting.\n"
+		exit 1
+	fi
+	print $Green "Compilation succeed\n"
+	print $Cyan "Running tests...\n"
+	make test
+	make clean
+	cd ../..
 fi
-
-print $Green "Compilation finished\n"
-print $Cyan "Running tests...\n"
-export DYLD_FALLBACK_LIBRARY_PATH="$test42fdir/bin:$DYLD_FALLBACK_LIBRARY_PATH"
-./tests/test_$dir
-export DYLD_FALLBACK_LIBRARY_PATH=`echo $DYLD_FALLBACK_LIBRARY_PATH | sed -e 's/^[^:]*://g'`
-
-print $Green "Tests finished successfully.\n"
 
 if [ 0 -lt $# ] && [ "$1" = "--norm" ]
 then
 
 	print $Cyan "Checking norm...\n"
 	norminette -R CheckForbiddenSourceHeader $dir/*.c 2> /dev/null
+	norminette -R CheckForbiddenSourceHeader $dir/*.h 2> /dev/null
 fi
-print $Purple "=====================================================\n"
+print $Yellow "=====================================================\n"
 exit 0
