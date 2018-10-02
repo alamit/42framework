@@ -1,6 +1,6 @@
 # 42framework
 Init, unit testing and submission framework for daily projects @ 42.
-> If you don't need a towel, you can use this experimental diving kit.
+> You're not stupid, and using a towel while being inside a pool would be stupid. Prefer a diving kit, it'll be be of more use.
 
 ### Key functionalities:
 - Generates a repository from a 42 templated PDF file (reads the sumission files).
