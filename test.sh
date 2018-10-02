@@ -38,9 +38,11 @@ else
 fi
 
 export TEST42F_DIR="$INSTALL_DIR/lib/test42f" # exported for makefile.
-export SRC=`grep "$dir.*.c" .42framework | tr '\n' ' '` # exported for makefile.
+SRC=`grep "$dir.*\.c" .42framework | tr '\n' ' '`
+SRC=`eval echo $SRC` 
+SRC=`echo $SRC | sed 's/[^ ]*[*][^ ]*//'` 
+export SRC # exported for makefile.
 export NAME="test_$dir"
-
 print $Yellow "Testing $dir ========================================\n"
 print $Cyan "Compiling handins sources...\n"
 
@@ -62,7 +64,7 @@ cd ..
 
 	cd tests/$dir
 	
-	make compile
+	make
 	out=$?
 
 	if [ "$out" -ne 0 ]
@@ -73,10 +75,9 @@ cd ..
 	fi
 	print $Green "Compilation succeed\n"
 	print $Cyan "Running tests...\n"
-	export DYLD_FALLBACK_LIBRARY_PATH="${TEST42F_DIR}/bin:${DYLD_FALLBACK_LIBRARY_PATH}"
+	export DYLD_FALLBACK_LIBRARY_PATH="$TEST42F_DIR/bin:$DYLD_FALLBACK_LIBRARY_PATH"
 	make test
-	make clean
-	export DYLD_FALLBACK_LIBRARY_PATH=`echo "${DYLD_FALLBACK_LIBRARY_PATH}" | sed -e 's/^[^:]*://g'`
+	export DYLD_FALLBACK_LIBRARY_PATH=`echo $DYLD_FALLBACK_LIBRARY_PATH | sed -e 's/^[^:]*://g'`
 	cd ../..
 
 

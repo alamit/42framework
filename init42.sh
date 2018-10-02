@@ -59,11 +59,15 @@ do
 		echo "!$dir/" >> .gitignore
 		if [ $filename = "andyourprogramfiles" -o $filename = "Allnecessaryfiles" -o $filename = "andfilesneededforyourprogram" ]
 		then
-			echo "!$dir/*.c" >> .gitignore
-			echo "!$dir/*.h" >> .gitignore
+			mkdir $dir/src
+			mkdir $dir/include
+			vim -c -Stdheader -c wq $dir/main.c
+			echo "!$dir/src/*.c" >> .gitignore
+			echo "!$dir/include/*.h" >> .gitignore
+			echo "!$dir/main.c" >> .gitignore
 			echo "!$dir/Makefile" >> .gitignore
-			echo "$(pwd)/$dir/*.c" >> .42framework
-			echo "$(pwd)/$dir/*.h" >> .42framework
+			echo "$(pwd)/$dir/src/*.c" >> .42framework
+			echo "$(pwd)/$dir/include/*.h" >> .42framework
 		else
 			if [ ! -f "$dir/$filename" ]
 			then
