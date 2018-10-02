@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 18:59:15 by alamit            #+#    #+#             */
-/*   Updated: 2018/10/01 22:01:01 by alamit           ###   ########.fr       */
+/*   Updated: 2018/10/01 22:05:03 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		test42f_io_record(char *recorder)
 				ending the previous record.");
 		return (1);
 	}
-	if (*recorder == NULL || recorder != NULL)
+	if (recorder != NULL)
 		return (1);
 	_test42f_stdout_cpy = dup(1);
 	setbuf(stdout, recorder);
