@@ -76,3 +76,7 @@ testall42() {
 ```
 
 Don't forget to run `source ~/.zshrc` before trying to run commands.
+
+### Credits
+
+Special thanks to Galvin Fielder, for helping me testing the framework during the piscine.
