@@ -39,8 +39,14 @@ do
 
 	IFS=$'\r\n,' GLOBIGNORE='*' command eval 'filenames=($files)'
 	
-	mkdir $dir
-	mkdir tests/$dir
+	if [ ! -d "$dir" ]
+	then 
+		mkdir $dir
+	fi
+	if [ ! -d  "tests/$dir"] 
+	then
+		mkdir tests/$dir
+	fi
 	cp $INSTALL_DIR/templates/test_template.c tests/$dir/test_$dir.c
 	cp $INSTALL_DIR/templates/Makefile_test tests/$dir/Makefile
 	echo "$dir/**" >> .gitignore
@@ -59,7 +65,10 @@ do
 			echo "$(pwd)/$dir/*.c" >> .42framework
 			echo "$(pwd)/$dir/*.h" >> .42framework
 		else
-			vim -c Stdheader -c wq $dir/$filename
+			if [ ! -f "$dir/$filename" ]
+			then
+				vim -c Stdheader -c wq $dir/$filename
+			fi
 			echo "!$dir/$filename" >> .gitignore
 			echo "$(pwd)/$dir/$filename" >> .42framework
 		fi
