@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/10/01 22:00:49 by alamit           ###   ########.fr       */
+/*   Updated: 2018/10/01 23:29:07 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ char	*test42f_intarr2str(size_t size, int *arr);
 bool	test42f_ptr_eq(char *title, void *ptr, void *expected);
 bool	test42f_ptr_neq(char *title, void *ptr, void *expected);
 
-int		test42f_io_record(char *tape);
-int		test42f_io_end_record();
+/* EXPERIMENTAL AND NON-PORTABLE */
+int		test42f_io_start_record();
+int		test42f_io_end_record(char **tape);
 
 /* New type functions returns dynamically allocated variables, they 
  ** should be freed.*/
