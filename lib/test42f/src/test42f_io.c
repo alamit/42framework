@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 18:59:15 by alamit            #+#    #+#             */
-/*   Updated: 2018/10/01 23:28:24 by alamit           ###   ########.fr       */
+/*   Updated: 2018/10/01 23:32:39 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		test42f_io_end_record(char **tape)
 	*tape = strdup(_test42f_io_tape);
 	freopen("NUL", "a", stdout);
 	dup2(_test42f_stdout_cpy, 1);
+	fflush(stdout);
 	setbuf(stdout, NULL);
 	close(_test42f_stdout_cpy);
 	_test42f_io_tape = NULL;
