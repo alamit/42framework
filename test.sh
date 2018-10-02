@@ -43,6 +43,10 @@ SRC=`eval echo $SRC`
 SRC=`echo $SRC | sed 's/[^ ]*[*][^ ]*//'` 
 export SRC # exported for makefile.
 export NAME="test_$dir"
+SUBMIT=`grep "$dir" .42framework | tr '\n' ' '`
+SUBMIT=`eval echo $SUBMIT`
+SUBMIT=`echo $SUBMIT | sed 's/[^ ]*[*][^ ]*//'`
+
 print $Yellow "Testing $dir ========================================\n"
 print $Cyan "Compiling handins sources...\n"
 
@@ -85,8 +89,11 @@ if [ 0 -lt $# ] && [ "$1" = "--norm" ]
 then
 
 	print $Cyan "Checking norm...\n"
-	norminette -R CheckForbiddenSourceHeader $dir/*.c 2> /dev/null
-	norminette -R CheckForbiddenSourceHeader $dir/*.h 2> /dev/null
+	IFS=$' ' GLOBIGNORE='*' command eval 'submits=($SUBMIT)'
+	for submit in "${submits[@]}"
+	do
+		norminette -R CheckForbiddenSourceHeader $submit
+	done
 fi
 print $Yellow "=====================================================\n"
 exit 0
