@@ -62,6 +62,8 @@ do
 			mkdir $dir/src
 			mkdir $dir/include
 			vim -c -Stdheader -c wq $dir/main.c
+			echo "!$dir/src/" >> .gitignore
+			echo "!$dir/include/" >> .gitignore
 			echo "!$dir/src/*.c" >> .gitignore
 			echo "!$dir/include/*.h" >> .gitignore
 			echo "!$dir/main.c" >> .gitignore
