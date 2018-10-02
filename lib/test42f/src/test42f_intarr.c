@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 00:26:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/10/02 00:10:02 by alamit           ###   ########.fr       */
+/*   Updated: 2018/10/02 13:55:09 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ char	*test42f_intarr2str(size_t size, int *arr)
 	while (i < size)
 	{
 		*res = arr[i] + '0';
+		res++;
 		if (i != size - 1)
 		{
 			*res = ',';
 			res++;
 		}
-		res++;
 		++i;
 	}
 	*res = ']';
