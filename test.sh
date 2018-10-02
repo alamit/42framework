@@ -38,7 +38,7 @@ else
 fi
 
 export TEST42F_DIR="$INSTALL_DIR/lib/test42f" # exported for makefile.
-export SRC=`grep "$dir*.c" .42framework | tr '\n' ' \\'` # exported for makefile.
+export SRC=`grep "$dir.*.c" .42framework | tr '\n' ' \\'` # exported for makefile.
 export NAME="test_$dir"
 
 print $Yellow "Testing $dir ========================================\n"
