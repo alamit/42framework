@@ -38,7 +38,7 @@ else
 fi
 
 export TEST42F_DIR="$INSTALL_DIR/lib/test42f" # exported for makefile.
-export SRC=`grep "$dir.*.c" .42framework | tr '\n' ' \\'` # exported for makefile.
+export SRC=`grep "$dir.*.c" .42framework | tr '\n' ' '` # exported for makefile.
 export NAME="test_$dir"
 
 print $Yellow "Testing $dir ========================================\n"
@@ -57,9 +57,8 @@ then
 fi
 print $Green "Compilation succeed.\n"
 cd ..
+echo $sources | cat -e
 
-if [ "$sources" != "" ]
-then
 	print $Cyan "Compiling tests sources...\n"
 
 	cd tests/$dir
@@ -77,7 +76,7 @@ then
 	make test
 	make clean
 	cd ../..
-fi
+
 
 if [ 0 -lt $# ] && [ "$1" = "--norm" ]
 then
