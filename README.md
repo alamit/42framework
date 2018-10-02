@@ -1,4 +1,4 @@
-# 42framework
+# 42framework (Alpha)
 Init, unit testing and submission framework for daily projects @ 42.
 > You're not stupid, and using a towel while being inside a pool would be stupid. Prefer a diving kit, it'll be of more use.
 
@@ -6,8 +6,6 @@ Init, unit testing and submission framework for daily projects @ 42.
 - Generates a repository from a 42 templated PDF file (reads the sumission files).
 - Gitignore everything but the submission files, to prevent repo pollution.
 - Provides a test framework and a test library, that allows to test each exercise separately and properly.
-
-## Warning: Alpha version
 
 ## Usage
 
