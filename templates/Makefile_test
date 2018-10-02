@@ -6,7 +6,7 @@
 #    By: alamit <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/01 15:13:02 by alamit            #+#    #+#              #
-#    Updated: 2018/10/01 20:12:49 by alamit           ###   ########.fr        #
+#    Updated: 2018/10/01 20:41:54 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,19 +15,20 @@
 # NAME SRC AND TEST42F variables will be exported – BREAKS could be – by the 
 # test script.
 
+SRC := $(SRC) $(wildcard *.c)
 OUT = $(NAME)
 
 all: compile
 
 compile:
 	gcc -Wall -Werror -Wextra \
-		-L$(TEST42F_DIR) -ltest42f \
+		-L$(TEST42F_DIR)/bin -ltest42f \
 		-I $(TEST42F_DIR)/include \
 		-o $(NAME) $(SRC)
 
 compile_debug:
 	gcc -g -Wall -Werror -Wextra \
-		-L$(TEST42F_DIR) -ltest42f \
+		-L$(TEST42F_DIR)/bin -ltest42f \
 		-I $(TEST42F_DIR)/include \
 		-o $(NAME) $(SRC)
 
@@ -35,9 +36,7 @@ clean:
 	rm -rf $(NAME)
 
 test:
-	export DYLD_FALLBACK_LIBRARY_PATH="$test42fdir/bin:$DYLD_FALLBACK_LIBRARY_PATH"
 	./$(NAME)
-	$(shell export DYLD_FALLBACK_LIBRARY_PATH=`echo $DYLD_FALLBACK_LIBRARY_PATH | sed -e 's/^[^:]*://g'`)
 
 test_debug:
 	lldb -f $(NAME)

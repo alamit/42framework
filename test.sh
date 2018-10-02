@@ -57,11 +57,11 @@ then
 fi
 print $Green "Compilation succeed.\n"
 cd ..
-echo $sources | cat -e
 
 	print $Cyan "Compiling tests sources...\n"
 
 	cd tests/$dir
+	
 	make compile
 	out=$?
 
@@ -73,8 +73,10 @@ echo $sources | cat -e
 	fi
 	print $Green "Compilation succeed\n"
 	print $Cyan "Running tests...\n"
+	export DYLD_FALLBACK_LIBRARY_PATH="${TEST42F_DIR}/bin:${DYLD_FALLBACK_LIBRARY_PATH}"
 	make test
 	make clean
+	export DYLD_FALLBACK_LIBRARY_PATH=`echo "${DYLD_FALLBACK_LIBRARY_PATH}" | sed -e 's/^[^:]*://g'`
 	cd ../..
 
 
