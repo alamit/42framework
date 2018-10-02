@@ -43,7 +43,7 @@ do
 	then 
 		mkdir $dir
 	fi
-	if [ ! -d  "tests/$dir"] 
+	if [ ! -d  "tests/$dir" ] 
 	then
 		mkdir tests/$dir
 	fi
