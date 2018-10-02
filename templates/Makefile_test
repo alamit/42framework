@@ -6,7 +6,7 @@
 #    By: alamit <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/01 15:13:02 by alamit            #+#    #+#              #
-#    Updated: 2018/10/01 16:26:20 by alamit           ###   ########.fr        #
+#    Updated: 2018/10/01 20:12:49 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,13 @@ all: compile
 
 compile:
 	gcc -Wall -Werror -Wextra \
-		-L$(TEST42FDIR) -ltest42f \
+		-L$(TEST42F_DIR) -ltest42f \
 		-I $(TEST42F_DIR)/include \
 		-o $(NAME) $(SRC)
 
 compile_debug:
 	gcc -g -Wall -Werror -Wextra \
-		-L$(TEST42FDIR) -ltest42f \
+		-L$(TEST42F_DIR) -ltest42f \
 		-I $(TEST42F_DIR)/include \
 		-o $(NAME) $(SRC)
 
