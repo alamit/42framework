@@ -6,7 +6,7 @@
 /*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 00:26:43 by alamit            #+#    #+#             */
-/*   Updated: 2018/09/28 05:29:01 by alamit           ###   ########.fr       */
+/*   Updated: 2018/10/02 00:10:02 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,26 @@ char	*test42f_intarr2str(size_t size, int *arr)
 	char	*rtn;
 	size_t	i;
 
-	res = malloc((3 * size + 1) * sizeof(char));
-	if (res == NULL) return NULL;
+	res = malloc((2 * size + 1) * sizeof(char));
+	if (res == NULL) 
+		return NULL;
 	rtn = res;
 	res[0] = '[';
-	i = 1;
+	++res;
+	i = 0;
 	while (i < size)
 	{
 		*res = arr[i] + '0';
 		if (i != size - 1)
 		{
-			res = strcat(res, ", ");
-			res += 2;
+			*res = ',';
+			res++;
 		}
 		res++;
+		++i;
 	}
 	*res = ']';
-	*(res + i) = '\0';
+	*(res + 1) = '\0';
 	return (rtn);
 }
 
