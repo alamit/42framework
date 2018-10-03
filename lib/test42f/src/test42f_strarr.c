@@ -14,8 +14,8 @@ bool	test42f_strarr_eq(char *title, char **arr, char **expected)
 		++expected;
 		++line;
 	}
-	res = strcmp(*expected, *arr);
-	if (!res)
+	res = (*arr == *expected) || !strcmp(*expected, *arr);
+	if (res)
 	{
 		printf("%sSUCCESS: ", KGRN);
 		free(trace);
@@ -56,7 +56,7 @@ bool	test42f_strarr_neq(char *title, char **arr, char **expected)
 		++expected;
 		++line;
 	}
-	res = strcmp(*expected, *arr);
+	res = (*arr == *expected) || !strcmp(*expected, *arr);
 	if (!res)
 	{
 		printf("%sSUCCESS: ", KGRN);
