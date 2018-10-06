@@ -57,7 +57,7 @@ do
 			cp $INSTALL_DIR/templates/Makefile_sources $dir/Makefile
 		fi
 		echo "!$dir/" >> .gitignore
-		if [ $filename = "andyourprogramfiles" -o $filename = "Allnecessaryfiles" -o $filename = "andfilesneededforyourprogram" ]
+		if [ $filename = "andyourprogramfiles" -o $filename = "Allnecessaryfiles" -o $filename = "andfilesneededforyourprogram" -o $filename = "andallofyourprogram'sfiles" ]
 		then
 			mkdir $dir/src
 			mkdir $dir/include
