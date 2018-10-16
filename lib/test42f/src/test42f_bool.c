@@ -79,4 +79,3 @@ bool	test42f_bool_neq(char *title, int boolean, int expected)
 		free(trace);
 	return (res);
 }
-
