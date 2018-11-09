@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test42f.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/10/02 14:00:34 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/08 17:40:25 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ bool	test42f_ptr_neq(char *title, void *ptr, void *expected);
 
 /* EXPERIMENTAL AND NON-PORTABLE */
 int		test42f_io_start_record();
-int		test42f_io_end_record(char **tape);
+int		test42f_io_end_record(char *buf, size_t bufsize);
 
-/* New type functions returns dynamically allocated variables, they 
+/* New type functions returns dynamically allocated variables, they
  ** should be freed.*/
 char	*test42f_new_str(char *str);
 int		*test42f_new_intarr(int size, ...);
