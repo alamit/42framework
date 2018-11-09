@@ -68,7 +68,7 @@ cd ..
 
 	cd tests/$dir
 	
-	make
+	make compile_debug
 	out=$?
 
 	if [ "$out" -ne 0 ]
@@ -79,9 +79,7 @@ cd ..
 	fi
 	print $Green "Compilation succeed\n"
 	print $Cyan "Running tests...\n"
-	export DYLD_FALLBACK_LIBRARY_PATH="$TEST42F_DIR/bin:$DYLD_FALLBACK_LIBRARY_PATH"
 	make test
-	export DYLD_FALLBACK_LIBRARY_PATH=`echo $DYLD_FALLBACK_LIBRARY_PATH | sed -e 's/^[^:]*://g'`
 	cd ../..
 
 
