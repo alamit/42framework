@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 18:59:15 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/08 17:39:59 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/08 17:48:57 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 static int		stdout_bkp = -1;
 static int		pipefd[2];
 
-int		test42f_io_start_record()
+int				test42f_io_start_record()
 {
 	if (stdout_bkp > -1)
 	{
-		fprintf(stderr, "test42f_io_record cannot be called before \
-				ending the previous record.");
+		fprintf(stderr,
+			"test42f_io_record cannot be used before ending previous record.");
 		return (1);
 	}
 	stdout_bkp = dup(fileno(stdout));
@@ -29,12 +29,12 @@ int		test42f_io_start_record()
 	return (0);
 }
 
-int		test42f_io_end_record(char *buf, size_t bufsize)
+int				test42f_io_end_record(char *buf, size_t bufsize)
 {
 	if (stdout_bkp == -1)
 	{
-		fprintf(stderr, "test42f_io_end_record cannot be called before \
-				test42f_io_record.");
+		fprintf(stderr,
+			"test42f_io_end_record cannot be used before test42f_io_record.");
 		return (1);
 	}
 	fflush(stdout);
