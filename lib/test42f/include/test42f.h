@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:19:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/08 17:40:25 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/09 10:48:50 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ bool	test42f_int_gteq(char *title, int nbr, int expected);
 bool	test42f_int_lt(char *title, int nbr, int expected);
 bool	test42f_int_gt(char *title, int nbr, int expected);
 
+bool	test42f_double_eq(char *title, double nbr, double expected);
+bool	test42f_double_neq(char *title, double nbr, double expected);
+bool	test42f_double_lteq(char *title, double nbr, double expected);
+bool	test42f_double_gteq(char *title, double nbr, double expected);
+bool	test42f_double_lt(char *title, double nbr, double expected);
+bool	test42f_double_gt(char *title, double nbr, double expected);
+
 bool	test42f_char_eq(char *title, char c, char expected);
 bool	test42f_char_neq(char *title, char c, char expected);
 bool	test42f_char_lteq(char *title, char c, char expected);
@@ -74,6 +81,6 @@ int		test42f_io_end_record(char *buf, size_t bufsize);
 char	*test42f_new_str(char *str);
 int		*test42f_new_intarr(int size, ...);
 
-double	test42f_runtime(clock_t start, clock_t end);
+double	test42f_runtime(void (*f)(void));
 
 #endif
